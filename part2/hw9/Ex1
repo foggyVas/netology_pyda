@@ -1,0 +1,16 @@
+import numpy as np
+"""
+Создайте numpy array с элементами от числа N до 0
+(например, для N = 10 это будет array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])).
+
+"""
+
+
+def creates_reverse_array(n):
+    """Создаёт numpy array с элементами от числа n до 0"""
+
+    return (np.arange(0, abs(n))[::-1])
+
+
+n = int(input('Введите значение N: '))
+print(creates_reverse_array(n))
