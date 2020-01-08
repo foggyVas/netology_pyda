@@ -1,0 +1,11 @@
+import numpy as np
+"""
+Создайте диагональную матрицу с элементами от N до 0. Посчитайте сумму ее значений на диагонали.
+"""
+
+def sum_diag_matrix(n):
+    return sum(sum(np.diag(np.arange(abs(n))[::-1])))
+
+
+n = int(input('Введите значение N: '))
+print(sum_diag_matrix(n))
