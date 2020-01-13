@@ -1,0 +1,12 @@
+import pandas as pd
+"""
+Выберите страницу любого сайта с табличными данными. Импортируйте таблицы в pandas dataframe.
+https://fortrader.org/quotes
+https://www.finanz.ru/valyuty/v-realnom-vremeni
+"""
+
+url = "https://www.finanz.ru/valyuty/v-realnom-vremeni"
+
+df = pd.read_html(url)
+
+print(df[0], '\n', len(df))
