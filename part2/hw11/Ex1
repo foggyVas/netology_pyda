@@ -1,0 +1,31 @@
+import pandas as pd
+"""
+Напишите функцию, которая классифицирует фильмы из материалов занятия по следующим правилам:
+- оценка 2 и меньше - низкий рейтинг
+- оценка 4 и меньше - средний рейтинг
+- оценка 4.5 и 5 - высокий рейтинг
+Результат классификации запишите в столбец class
+"""
+
+ratings = pd.read_csv('ratings.csv')
+movies = pd.read_csv('movies.csv')
+# see_rating = ratings.query('rating == 5.0')['movieId'].value_counts()
+
+
+def rating_groups(row):
+    """subj"""
+
+    if 0.0 < row['rating'] <= 2.0:
+        return 'low'
+    elif 2.0 < row['rating'] <= 4.0:
+        return 'middle'
+    elif row['rating'] <= 5.0:
+        return 'high'
+    else:
+        return None
+
+
+ratings['class'] = ratings.apply(rating_groups, axis=1)
+
+print(movies[ (movies['movieId'] == 1219) ])
+print(ratings[ (ratings['movieId'] == 1219) ].head(5))
