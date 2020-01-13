@@ -1,0 +1,14 @@
+import pandas as pd
+"""
+Скачайте с сайта https://grouplens.org/datasets/movielens/ датасет любого размера. 
+Определите какому фильму было выставлено больше всего оценок 5.0.
+"""
+
+ratings = pd.read_csv('ratings.csv')
+movies = pd.read_csv('movies.csv')
+
+max_rating = ratings.query('rating == 5.0')['movieId'].value_counts().idxmax()
+
+# Данная конструкция работает медленнее
+# print(movies.query(f'movieId == {max_rating}'))
+print(movies[(movies['movieId'] == max_rating)])
