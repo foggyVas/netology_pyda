@@ -1,0 +1,16 @@
+import pandas as pd
+"""
+По данным файла power.csv посчитайте суммарное потребление стран Прибалтики (Латвия, Литва и 
+Эстония) категорий 4, 12 и 21 за период с 2005 по 2010 года. Не учитывайте в расчетах 
+отрицательные значения quantity.
+"""
+
+df = pd.read_csv('power.csv')
+
+# Latvia Lithuania Estonia
+filtered_df = df[ (df['country'].isin(['Latvia', 'Estonia', 'Lithuania']) &
+                   (df['category'].isin([4, 12, 21])) &
+                   (df['year'].between(2005, 2010)) &
+                   (df['quantity'] >= 0)) ]
+
+print(filtered_df['quantity'].sum())
