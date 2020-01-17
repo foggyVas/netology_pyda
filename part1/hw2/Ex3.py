@@ -10,3 +10,26 @@ queries = ['смотреть сериалы онлайн',
            'сериалы про спорт',
            ' ',
            ]
+q1 = 0
+q2 = 0
+q3 = 0
+for i in range(len(queries)):
+    s = queries[i]
+    s = s.split()
+    k = len(s)
+    if k == 1:
+        q1 += 1
+    elif k == 2:
+        q2 += 1
+    elif k == 3:
+        q3 += 1
+    i += 1
+
+print(q1, q2, q3)
+sum_q = q1 + q2 + q3
+q1_pct = q1 * 100 / sum_q
+q2_pct = q2 * 100 / sum_q
+q3_pct = q3 * 100 / sum_q
+
+print(f' поисковых запросов из одного слова:({q1_pct:.4f})%\n'
+      f' из двух слов: ({q2_pct:.4f})%\n из трех слов ({q3_pct:.4f})%')
