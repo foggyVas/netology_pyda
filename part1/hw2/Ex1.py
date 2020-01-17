@@ -9,13 +9,12 @@ geo_logs = [['visit1', ['Москва', 'Россия']],
             ['visit9', ['Курск', 'Россия']],
             ['visit10', ['Архангельск', 'Россия']]
             ]
-print(geo_logs[0])
-print(geo_logs[2])
-print(geo_logs[6])
-print(geo_logs[7])
-print(geo_logs[8])
-print(geo_logs[9])
 
-print('\n',geo_logs[0], geo_logs[2], geo_logs[6:9])
-print('\n','Есть ли решение в 1 строку, но что бы как в первом варианте'
-           ' был формат вывода?')
+geo_logs_rus = list()
+
+for i in range(len(geo_logs)):
+    if 'Россия' in geo_logs[i][1]:
+        geo_logs_rus.append(geo_logs[i])
+
+
+print(geo_logs_rus)
